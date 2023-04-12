@@ -1,129 +1,146 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+import random
+print("This is the book recommendation app! Here, you will be connected with numerous types of books from various authors and genres. Please note that you cannot ask for more than 7 recommendations per genre.")
+genre= input("What genre would you like? (Romance, Science Fiction, Mystery, Fantasy, Comedy, and Slice of Life)")
+num_books= int(input("How many books would you like to be recommended?"))
 
-# C extensions
-*.so
+#Let me make the lists we need for this application
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+new_science_fiction=[" 'The Mimicking of Known Successes' by Malka Older", " 'The Terraformers' by Annalee Newitz", " 'The World We Make' by N.K. Jemisin", " 'Leech' by Hiron Ennes", " 'Nona the Ninth' by Tamsyn Muir", " 'The Kaiju Preservation Society' by John Scalzi", " 'Weaponized' by Neal Asher"]
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+old_science_fiction=[" 'A Journey to the Center of Earth' by Jules Verne", " 'Odd John' by Olaf Stapledon", " 'When Worlds Collide' by Edwin Balmer & Philip Wylie", " 'The Chrysalids' by John Wyndham", " 'Man Plus' by Frederik Pohl", " 'Ringworld' by Larry Niven", " 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams"]
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+new_romance=[" 'Bridgerton: Romancing Mister Bridgerton' by Julia Quinn", " 'In Isabeau's Eyes' by Lora Leigh", " 'Lip Service' by Susan Mallery", " 'Dyscalculia: A Love Story of Epic Miscalculation' by Camonghne Felix", " 'Just My Type' by Falon Ballard", " 'Secretly Yours' by Tessa Bailey", " 'Weather Girl' by Rachel Lynn Solomon" ]
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+old_romance=[" 'Sense and Sensibility' by Jane Austen", " 'The Grand Sophy' by Georgette Heyer", " 'The Blue Castle' by L.M. Montgomery", " 'La Dame aux Camelias' by Alexandre Dumas", " 'Lady Susan' by Jane Austen", " 'Frederica' by Georgette Heyer", " 'The Princess Bride' by William Goldman"]
 
-# Translations
-*.mo
-*.pot
+new_mystery=[" 'And There He Kept Her' by Joshua Moehling", " 'Night Film' by Marisha Pessl", " 'The Cartographers' by Peng Shepherd", " 'A Flicker in the Dark' by Stacy Willingham", " 'Killers of a Certain Age' by Deanna Raybourn", " 'Convince Me' by Nina Sadowsky", " 'The Twyford Code' by Janice Hallett"]
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+old_mystery=[" 'The Secret History' by Donna Tartt", " 'Death and the Dancing Footman' by Ngaio Marsh", " 'The Nine Tailors' by Dorothy L Sayers", " 'Hercule Poirot's Christmas' by Agatha Christie", " 'The Corpse in the Snowman' by Nicholas Blake", " 'The Blue Carbuncle' by Arthur Conan Doyle", " 'Mystery in White' by J. Jefferson Farjeon"]
 
-# Flask stuff:
-instance/
-.webassets-cache
+new_fantasy=[" 'The Last Tale of the Flower Bride' by Roshani Chokshi", " 'Victory City' by Salman Rushdie", " 'The Severed Thread' by Leslie Vedder", " 'Eleventh Cycle' by Kian N. Ardalan", " 'The Last City' by H.J. Nelson", " 'The Daughters of Oduma' by Moses Ose Utomi", " 'Shield Maiden' by Sharon Emmerichs"]
 
-# Scrapy stuff:
-.scrapy
+old_fantasy=[" 'Alice's Adventures in Wonderland' by Lewis Carroll", " 'The Hobbit' by J.R.R. Tolkien", " 'The Lion, the Witch, and the Wardrobe' by C.S. Lewis", " 'The Forgotten Beasts of Eld' by Patricia A. McKillip", " 'A Midsummer Tempest' by Poul Anderson", " 'Kindred' by Octavia Butler", " 'The Mists of Avalon' by Marion Zimmer Bradley"]
 
-# Sphinx documentation
-docs/_build/
+new_comedy=[" 'Comedy Comedy Comedy' by Bob Odenkirk", " 'Born a Crime' by Trevor Noah", " 'Ten Steps to Nanette: A Memoir Situation' by Hannah Gadsby", " 'The World's Worst Assistant' by Sona Movsesian"," 'Hyperbole and a Half' by Allie Brosh", " 'The Last Black Unicorn' by Tiffany Haddish", " 'Based on a True Story' by Norm MacDonald" ]
 
-# PyBuilder
-target/
+old_comedy=[" 'Tracy Flick Can't Win' by Tom Perrotta", " 'Catch-22' by Joseph Heller", " 'Good Omens' by Nail Gailman", " 'Me Talk Pretty One Day' by David Sedaris", " 'Three Men in a Boat' by Jerome K. Jerome", " 'Cold Comfort Farm' by Stella Gibbons", " 'A House for Mr. Biswas' by V.S. Naipaul"]
 
-# Jupyter Notebook
-.ipynb_checkpoints
+new_slice=[" 'Legends & Lattes' by Travis Baldree", " 'A Man Called Ove' by Frederik Backman", " 'Convenience Store Woman' by Sayaka Murata", " 'The Perks of Being a Wallflower' by Stephen Chbosky", " 'The Fault in Our Stars' by John Green", " 'Fangirl' by Rainbow Rowell", " 'Eleanor & Park' by Rainbow Rowell"]
 
-# IPython
-profile_default/
-ipython_config.py
+old_slice=[" 'Anne of Green Gables' by L.M. Montgomery", " 'Paper Towns' by John Green", " 'Norwegian Wood' by Haruki Murakami", " 'Looking for Alaska' by John Green", " 'Yotsuba&!1' by Kiyohiko Azuma", " Olive Kitteridge' by Elizabeth Strout", " 'Howl's Moving Castle' by Diana Wynne Jones"]
 
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+#I will define a function that will specifically differentiate between old and new books within their respective genres
+def pick(era, genre):
+    if era== "new" and genre== "Science Fiction":
+        for i in range(num_books):
+            recommendation= random.choice(new_science_fiction)
+            new_science_fiction.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Science Fiction":
+        for i in range(num_books):
+            recommendation= random.choice(old_science_fiction)
+            old_science_fiction.remove(recommendation)
+            print(recommendation)
+    elif era== "new" and genre== "Romance":
+        for i in range(num_books):
+            recommendation= random.choice(new_romance)
+            new_romance.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Romance":
+        for i in range(num_books):
+            recommendation= random.choice(old_romance)
+            old_romance.remove(recommendation)
+            print(recommendation)
+    elif era== "new" and genre== "Mystery":
+        for i in range(num_books):
+            recommendation= random.choice(new_mystery)
+            new_mystery.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Mystery":
+        for i in range(num_books):
+            recommendation= random.choice(old_mystery)
+            old_mystery.remove(recommendation)
+            print(recommendation)
+    elif era== "new" and genre== "Fantasy":
+        for i in range(num_books):
+            recommendation= random.choice(new_fantasy)
+            new_fantasy.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Fantasy":
+        for i in range(num_books):
+            recommendation= random.choice(old_fantasy)
+            old_fantasy.remove(recommendation)
+            print(recommendation)
+    elif era== "new" and genre== "Comedy":
+        for i in range(num_books):
+            recommendation= random.choice(new_comedy)
+            new_comedy.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Comedy":
+        for i in range(num_books):
+            recommendation= random.choice(old_comedy)
+            old_comedy.remove(recommendation)
+            print(recommendation)
+    elif era== "new" and genre== "Slice of Life":
+        for i in range(num_books):
+            recommendation= random.choice(new_slice)
+            new_slice.remove(recommendation)
+            print(recommendation)
+    elif era== "old" and genre== "Slice of Life":
+        for i in range(num_books):
+            recommendation= random.choice(old_slice)
+            old_slice.remove(recommendation)
+            print(recommendation)
+            
+#This function will begin the process of sorting the possible genres and their age categories together (while certain conditions are met)           
+def recommend(g,n):
+    while g != "" and n != 0 and n !="" and n<=7:
+        if g == "Science Fiction":
+            age= input("Some of our science fiction books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        elif g == "Romance":
+            age= input("Some of our romance books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        elif g == "Mystery":
+            age= input("Some of our mystery books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        elif g== "Fantasy":
+            age= input("Some of our fantasy books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        elif g== "Comedy":
+            age= input("Some of our comedy books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        elif g== "Slice of Life":
+            age= input("Some of our slice of life books are older (Before 2010) while some are newer (2010-present). Do you want an older book or a newer book? (Type 'new' or 'old'):")
+            if age== "old":
+                pick("old", g)
+            if age== "new":
+                pick("new", g)
+        return True
+    while g== "" or n==0 or n== "" or n>7:
+        print("The criteria you gave is incorrect. Please try again.")
+        return False
+#These next few lines of code are meant to both display book recommendations and ensure that the user-inputted criteria are correct for the program's purpose            
+valid= recommend(genre,num_books)
+while valid== False:
+    genre= input("What genre would you like? (Romance, Science Fiction, Mystery, Fantasy, Comedy, and Slice of Life)")
+    num_books= int(input("How many books would you like to be recommended?"))
+    valid= recommend(genre, num_books)
+if valid== True:
+    print("Thank you for using our recommendation service! We hope to see you again soon!")
+    
